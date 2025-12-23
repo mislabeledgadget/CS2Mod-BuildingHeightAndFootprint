@@ -1,0 +1,2 @@
+- Initial release.
+- Converted Building Height section to fold out panel. Removed over active logging.

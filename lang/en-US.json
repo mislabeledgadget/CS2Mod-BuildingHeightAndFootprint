@@ -1,0 +1,15 @@
+{
+  "Options.SECTION[BuildingHeightAndFootprint.BuildingHeightAndFootprint.Mod]": "Building Height and Footprint",
+
+  "Options.OPTION[BuildingHeightAndFootprint.BuildingHeightAndFootprint.Mod.BuildingHeightAndFootprintSettings.HeightUnit]": "Height units",
+  "Options.OPTION_DESCRIPTION[BuildingHeightAndFootprint.BuildingHeightAndFootprint.Mod.BuildingHeightAndFootprintSettings.HeightUnit]": "Display building height and footprint in feet/acres or meters/hectares.",
+
+  "Options.OPTION[BuildingHeightAndFootprint.BuildingHeightAndFootprint.Mod.BuildingHeightAndFootprintSettings.SeaLevelBaselineMeters]": "Sea level baseline (m)",
+  "Options.OPTION_DESCRIPTION[BuildingHeightAndFootprint.BuildingHeightAndFootprint.Mod.BuildingHeightAndFootprintSettings.SeaLevelBaselineMeters]": "World Y (meters) that should be treated as 0 ft elevation.",
+
+  "Options.OPTION[BuildingHeightAndFootprint.BuildingHeightAndFootprint.Mod.BuildingHeightAndFootprintSettings.SeaLevelBaselineFeetDisplay]": "Sea level baseline (ft)",
+  "Options.OPTION_DESCRIPTION[BuildingHeightAndFootprint.BuildingHeightAndFootprint.Mod.BuildingHeightAndFootprintSettings.SeaLevelBaselineFeetDisplay]": "Feet equivalent of the baseline (display only).",
+
+  "Options.BuildingHeightAndFootprint.BuildingHeightAndFootprint.Mod.HEIGHTUNITKIND[Feet]": "Feet / Acres",
+  "Options.BuildingHeightAndFootprint.BuildingHeightAndFootprint.Mod.HEIGHTUNITKIND[Meters]": "Meters / Hectares"
+}

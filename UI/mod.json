@@ -1,0 +1,10 @@
+{
+  "id": "BuildingHeightAndFootprint",
+  "author": "MislabeledGadget",
+  "version": "1.0.3",
+  "assemblies": [
+    "BuildingHeightAndFootprint.dll"
+  ],
+  "ui": "BuildingHeightAndFootprint.mjs",
+  "dependencies": []
+}

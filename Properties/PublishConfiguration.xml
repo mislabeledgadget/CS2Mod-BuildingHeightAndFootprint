@@ -1,0 +1,70 @@
+﻿<Publish>
+	<!--Id must be set in order to update existed mod. it is not required for publishing mod for the first time-->
+	<ModId Value="128577" />
+	<!--Name of the mod to display to players-->
+	<DisplayName Value="Building Heights and Footprint" />
+	<!--Short description of the mod-->
+	<ShortDescription Value="See the height, number of stories, and footprint size of any building" />
+	<!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
+	<!--LongDescription Value="This is a long description" /-->
+	<LongDescription>
+# Building Height and Footprint
+
+Adds real-world building measurements to the Building Info panel in *Cities: Skylines II*.
+
+When selecting a building, this mod displays its estimated height, floor count, and ground footprint alongside the game’s existing information.
+
+---
+
+## Features
+
+- **Building height**
+- Displayed in feet or meters
+- Derived from actual 3D building geometry (natively in meters)
+
+- **Estimated floors**
+- Calculated using some adaptations based on building type and region pack. If you see any inaccuracies, please let me know.
+
+- **Building footprint**
+- Estimated ground area from geometry
+- Displayed as:
+- Acres (Imperial)
+- Hectares (Metric)
+- Approximate zoning cell dimensions for zoned buildings
+
+---
+
+## Settings
+
+Available under **Options → Building Height and Footprint**:
+
+- Height units: Feet or Meters
+(Footprint units switch automatically between acres and hectares)
+  </LongDescription>
+	<!--Thumbnail-->
+	<Thumbnail Value="Properties/Thumbnail.png" />
+	<!--Screenshot, can be set multiple times-->
+	<Screenshot Value="Properties/Screenshots/Screenshot1.png" />
+  <Screenshot Value="Properties/Screenshots/Screenshot2.png" />
+  <Screenshot Value="Properties/Screenshots/Screenshot3.png" />
+	<!--Tag, can be set multiple times-->
+	<Tag Value="Code Mod" />
+	<!--Link to the forum post where the mod can be discussed-->
+	<!--Version of the mod-->
+	<ModVersion Value="1.0.3" />
+	<!--Recommended version of the base game to use the mod-->
+	<GameVersion Value="1.5.*" />
+	<!--Dependency for the mod, can be set multiple times-->
+	<Dependency Id="75426" DisplayName="I18n Everywhere" Version="1.4.*"  />
+	<!--Required DLC, can be set multiple times. Supported values are "Landmark Buildings", "San Fransisco Set", "Beach Properties", "Urban Promenades", "Modern Architecture"-->
+	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
+  <ChangeLog>
+    - Initial release
+    - Converted Building Height section to fold out panel. Removed over active logging.
+  </ChangeLog>
+	<!--<ChangeLog>
+	</ChangeLog>-->
+	<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
+	<ExternalLink Type="github" Url="https://github.com/mislabeledgadget/CS2Mod-BuildingHeightAndFootprint" />
+  <AccessLevel Value="Public" />
+</Publish>
