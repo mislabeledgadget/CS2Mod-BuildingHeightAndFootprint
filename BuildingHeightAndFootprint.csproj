@@ -4,8 +4,8 @@
 		<Configurations>Debug;Release</Configurations>
     <OutputType>Library</OutputType>
     <Title>Building Height and Footprint</Title>
-    <Description>See the height, number of stories, and footprint size of any building.</Description>
-    <Version>1.1.0</Version>
+    <Description>See the height, number of stories, elevation, and footprint size of any building.</Description>
+    <Version>1.1.2</Version>
     <Copyright>Copyright © 2025 MislabeledGadget</Copyright>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <DefaultItemExcludes>UI\node_modules\**;$(DefaultItemExcludes)</DefaultItemExcludes>

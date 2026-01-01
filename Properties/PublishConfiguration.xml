@@ -34,7 +34,7 @@
 
     - **Building elevation**
     - Displayed in feet or meters
-    - Adjustable offset in case you don't want to use the map's built in sea level value.
+    - Adjustable offset in case you don't want to use the map’s built in sea level value.
 
     ---
 
@@ -47,7 +47,7 @@
     - Elevation offset: Adjust the displayed elevation by a fixed amount (in meters)
   </LongDescription>
 	<!--Thumbnail-->
-	<Thumbnail Value="Properties/Thumbnail.png" />
+	<Thumbnail Value="Properties/bhf-logo.png" />
 	<!--Screenshot, can be set multiple times-->
 	<Screenshot Value="Properties/Screenshots/10-bhaf-meters.png" />
   <Screenshot Value="Properties/Screenshots/20-bhaf-feet.png" />
@@ -56,16 +56,16 @@
 	<Tag Value="Code Mod" />
 	<!--Link to the forum post where the mod can be discussed-->
 	<!--Version of the mod-->
-	<ModVersion Value="1.1.0" />
+	<ModVersion Value="1.1.2" />
 	<!--Recommended version of the base game to use the mod-->
 	<GameVersion Value="1.5.*" />
 	<!--Dependency for the mod, can be set multiple times-->
 	<Dependency Id="75426" DisplayName="I18n Everywhere" Version="1.4.*"  />
 	<!--Required DLC, can be set multiple times. Supported values are "Landmark Buildings", "San Fransisco Set", "Beach Properties", "Urban Promenades", "Modern Architecture"-->
 	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
-  <ForumLink Value="https://forum.paradoxplaza.com/forum/threads/building-height-and-footprint.1891700/"/>
+  <ForumLink Value="https://forum.paradoxplaza.com/forum/threads/building-height-and-footprint.1892804/"/>
   <ChangeLog>
-    - added elevation display with a setting to offset the value.
+    - updated forum link
   </ChangeLog>
 	<!--<ChangeLog>
 	</ChangeLog>-->

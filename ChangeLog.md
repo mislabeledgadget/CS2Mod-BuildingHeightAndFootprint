@@ -1,2 +1,4 @@
 - Initial release.
 - Converted Building Height section to fold out panel. Removed over active logging.
+- added elevation display with a setting to offset the value.
+- updated forum link.
