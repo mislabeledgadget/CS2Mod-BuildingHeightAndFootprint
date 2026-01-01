@@ -1,29 +1,32 @@
-﻿using Colossal.Mathematics;
+﻿using BuildingHeightAndFootprint.Systems; // Units
+using Colossal.Mathematics;
 using Game.Common;
 using Game.Objects;
 using Game.Prefabs;
+using Game.Simulation;      // WaterSystem
 using Unity.Entities;
 
 namespace BuildingHeightAndFootprint
 {
     public partial class BuildingHeightAndFootprintSystem
     {
-        // Named uniquely to avoid partial-class duplicate constant collisions.
-        private const float FeetPerMeter = 3.28084f;
+        private bool TryGetSeaLevelMeters(out float seaLevelMeters)
+        {
+            seaLevelMeters = 0f;
 
-        /// <summary>
-        /// Computes base elevation ABOVE USER-DEFINED SEA LEVEL in feet.
-        ///
-        /// The user supplies SeaLevelBaselineMeters (world Y in meters that should read as 0 ft).
-        ///
-        /// IMPORTANT:
-        /// - INSTANCE geometry bounds are treated as WORLD space.
-        /// - PREFAB geometry bounds are treated as LOCAL space (apply Transform offset).
-        /// </summary>
+            var waterSystem = World.GetExistingSystemManaged<WaterSystem>();
+            if (waterSystem == null)
+                return false;
+
+            seaLevelMeters = waterSystem.SeaLevel;
+            return true;
+        }
+
         internal bool TryGetBaseElevationAboveSeaFeet(
             Entity entity,
             ObjectGeometryData geo,
             bool boundsAreLocalSpace,
+            float seaLevelOffsetMeters,
             out float baseElevationFeet)
         {
             baseElevationFeet = 0f;
@@ -41,10 +44,20 @@ namespace BuildingHeightAndFootprint
                 ? (tr.m_Position.y + minY)
                 : minY;
 
-            float baselineMeters = Mod.Settings?.SeaLevelBaselineMeters ?? 0f;
+            float elevationMeters;
 
-            float aboveSeaMeters = worldBaseMeters - baselineMeters;
-            baseElevationFeet = aboveSeaMeters * FeetPerMeter;
+            if (TryGetSeaLevelMeters(out float seaLevelMeters))
+            {
+                // Elevation above true sea level, then apply user correction.
+                elevationMeters = (worldBaseMeters - seaLevelMeters) + seaLevelOffsetMeters;
+            }
+            else
+            {
+                // Absolute 0 baseline, then apply user correction.
+                elevationMeters = worldBaseMeters + seaLevelOffsetMeters;
+            }
+
+            baseElevationFeet = elevationMeters * Units.MetersToFeet;
             return true;
         }
     }

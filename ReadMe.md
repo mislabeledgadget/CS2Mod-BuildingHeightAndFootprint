@@ -23,6 +23,10 @@ When selecting a building, this mod displays its estimated height, floor count, 
     - Hectares (Metric)
   - Approximate zoning cell dimensions for zoned buildings
 
+- **Building elevation**
+    - Displayed in feet or meters
+    - Adjustable offset in case you don't want to use the map's built in sea level value.
+
 - **UI integration**
   - Zoned buildings: Level section
   - Ploppable & signature buildings: Description section
@@ -35,6 +39,7 @@ Available under **Options → Building Height and Footprint**:
 
 - Height units: Feet or Meters  
   (Footprint units switch automatically between acres and hectares)
+- Elevation offset: Adjust the displayed elevation by a fixed amount (in meters)
 
 ---
 

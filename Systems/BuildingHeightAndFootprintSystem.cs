@@ -79,9 +79,6 @@ namespace BuildingHeightAndFootprint
             var world = World.DefaultGameObjectInjectionWorld;
             if (world != null)
             {
-                // Prefer fetching an existing tool system to avoid forcing creation
-                // (which can have side-effects during early init). If none exists,
-                // fall back to creating it.
                 _toolSystem = world.GetExistingSystemManaged<ToolSystem>()
                     ?? world.GetOrCreateSystemManaged<ToolSystem>();
             }
@@ -184,6 +181,9 @@ namespace BuildingHeightAndFootprint
             float baseElevationFeet = 0f;
             bool okElevation = false;
 
+            // Sea-level offset (user setting, can be +/-). Default to 0.
+            float seaLevelOffsetMeters = Mod.Settings?.SeaLevelOffsetMeters ?? 0f;
+
             try
             {
                 // 1) Prefer instance geometry when available
@@ -204,7 +204,12 @@ namespace BuildingHeightAndFootprint
 
                     // Elevation (partial file)
                     // Instance geometry bounds are treated as WORLD space (do NOT add Transform offset).
-                    okElevation = TryGetBaseElevationAboveSeaFeet(selected, instGeo, boundsAreLocalSpace: false, out baseElevationFeet);
+                    okElevation = TryGetBaseElevationAboveSeaFeet(
+                        selected,
+                        instGeo,
+                        boundsAreLocalSpace: false,
+                        seaLevelOffsetMeters,
+                        out baseElevationFeet);
                 }
 
                 // 2) If instance failed or not present, try prefab geometry
@@ -218,7 +223,12 @@ namespace BuildingHeightAndFootprint
                     if (!okElevation)
                     {
                         // Prefab geometry bounds are treated as LOCAL space (apply Transform offset).
-                        okElevation = TryGetBaseElevationAboveSeaFeet(selected, prefabGeo, boundsAreLocalSpace: true, out baseElevationFeet);
+                        okElevation = TryGetBaseElevationAboveSeaFeet(
+                            selected,
+                            prefabGeo,
+                            boundsAreLocalSpace: true,
+                            seaLevelOffsetMeters,
+                            out baseElevationFeet);
                     }
 
                     // Only try prefab footprint if instance footprint did not succeed
@@ -341,11 +351,10 @@ namespace BuildingHeightAndFootprint
                     areaLabel = "acres";
                 }
 
-                sb.AppendLine(
-                    $"{char.ToUpper(areaLabel[0])}{areaLabel.Substring(1)} Footprint: {areaValue:F2} {areaLabel}");
+                sb.AppendLine($"{char.ToUpper(areaLabel[0])}{areaLabel.Substring(1)} Footprint: {areaValue:F2} {areaLabel}");
             }
 
-            // Elevation shown when present
+            // Elevation shown when present (we always have a number; if derivation failed it's 0)
             float elevValue;
             string elevUnitLabel;
 

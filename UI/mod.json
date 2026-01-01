@@ -1,7 +1,7 @@
 {
   "id": "BuildingHeightAndFootprint",
   "author": "MislabeledGadget",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "assemblies": [
     "BuildingHeightAndFootprint.dll"
   ],

@@ -3,6 +3,7 @@ using Game.Modding;
 using Game.Settings;
 using Game.UI;
 using System.Globalization;
+using BuildingHeightAndFootprint.Systems; // Units
 
 namespace BuildingHeightAndFootprint
 {
@@ -15,14 +16,12 @@ namespace BuildingHeightAndFootprint
             Meters
         }
 
-        private const float MetersToFeet = 3.28084f;
-
         public ModSettings(IMod mod) : base(mod) { }
 
         public override void SetDefaults()
         {
             HeightUnit = HeightUnitKind.Feet;
-            SeaLevelBaselineMeters = 0;
+            SeaLevelOffsetMeters = 0;
         }
 
         // --------------------
@@ -37,7 +36,9 @@ namespace BuildingHeightAndFootprint
         // --------------------
 
         /// <summary>
-        /// Sea level baseline in WORLD meters (world Y = 0 ft reference).
+        /// Sea level offset in WORLD meters.
+        /// This is applied as a correction to the computed elevation.
+        /// Accepts positive or negative values.
         /// </summary>
         [SettingsUISection("Elevation")]
         [SettingsUISlider(
@@ -47,13 +48,27 @@ namespace BuildingHeightAndFootprint
             scalarMultiplier = 1f,
             unit = Unit.kInteger
         )]
-        public int SeaLevelBaselineMeters { get; set; }
+        public int SeaLevelOffsetMeters { get; set; }
+
+        /// <summary>
+        /// Button: resets SeaLevelOffsetMeters back to 0.
+        /// CS2 Options UI calls the setter as the button action.
+        /// </summary>
+        [SettingsUISection("Elevation")]
+        [SettingsUIButton]
+        public bool ResetSeaLevelOffset
+        {
+            set
+            {
+                SeaLevelOffsetMeters = 0;
+            }
+        }
 
         /// <summary>
         /// Read-only helper text showing the feet equivalent.
         /// </summary>
         [SettingsUISection("Elevation")]
-        public string SeaLevelBaselineFeetDisplay =>
-            $"≈ {(SeaLevelBaselineMeters * MetersToFeet).ToString("F1", CultureInfo.InvariantCulture)} ft";
+        public string SeaLevelOffsetFeetDisplay =>
+            $"≈ {(SeaLevelOffsetMeters * Units.MetersToFeet).ToString("F1", CultureInfo.InvariantCulture)} ft";
     }
 }
