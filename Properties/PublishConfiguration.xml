@@ -71,5 +71,6 @@
 	</ChangeLog>-->
 	<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
 	<ExternalLink Type="github" Url="https://github.com/mislabeledgadget/CS2Mod-BuildingHeightAndFootprint" />
+  <ExternalLink Type="discord" Url="https://discord.com/channels/1024242828114673724/1456158247689130055" />
   <AccessLevel Value="Public" />
 </Publish>
