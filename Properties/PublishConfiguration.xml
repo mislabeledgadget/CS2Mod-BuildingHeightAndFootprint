@@ -8,43 +8,40 @@
 	<!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
 	<!--LongDescription Value="This is a long description" /-->
 	<LongDescription>
-    # Building Height and Footprint
+# Building Height and Footprint
 
-    Adds real-world building measurements to the Building Info panel in *Cities: Skylines II*.
+Adds real-world building measurements to the Building Info panel in *Cities: Skylines II*.
 
-    When selecting a building, this mod displays its estimated height, floor count, ground footprint, and elevation alongside the game’s existing information.
+When selecting a building, this mod displays its estimated height, floor count, ground footprint, and elevation alongside the game’s existing information.
 
-    ---
+---
 
-    ## Features
+## Features
 
-    - **Building height**
-    - Displayed in feet or meters
-    - Derived from actual 3D building geometry (natively in meters)
+- **Building height**
+- Displayed in feet or meters
+- Derived from actual 3D building geometry (natively in meters)
 
-    - **Estimated floors**
-    - Calculated using some adaptations based on building type and region pack. If you see any inaccuracies, please let me know.
+- **Estimated floors**
+- Calculated using some adaptations based on building type and region pack. If you see any inaccuracies, please let me know.
 
-    - **Building footprint**
-    - Estimated ground area from geometry
-    - Displayed as:
-    - Acres (Imperial)
-    - Hectares (Metric)
-    - Approximate zoning cell dimensions for zoned buildings
+- **Building footprint**
+- Estimated ground area from geometry
+- Displayed as:
+- Acres (Imperial)
+- Hectares (Metric)
+- Approximate zoning cell dimensions for zoned buildings
 
-    - **Building elevation**
-    - Displayed in feet or meters
-    - Adjustable offset in case you don't want to use the map’s built in sea level value.
+- **Building elevation**
+- Displayed in feet or meters
+- Adjustable offset in case you don't want to use the map’s built in sea level value.
 
-    ---
-
-    ## Settings
-
-    Available under **Options → Building Height and Footprint**:
-
-    - Height units: Feet or Meters
-    (Footprint units switch automatically between acres and hectares)
-    - Elevation offset: Adjust the displayed elevation by a fixed amount (in meters)
+---
+## Settings
+Available under **Options → Building Height and Footprint**:
+- Height units: Feet or Meters
+(Footprint units switch automatically between acres and hectares)
+- Elevation offset: Adjust the displayed elevation by a fixed amount (in meters)
   </LongDescription>
 	<!--Thumbnail-->
 	<Thumbnail Value="Properties/bhf-logo.png" />
@@ -56,7 +53,7 @@
 	<Tag Value="Code Mod" />
 	<!--Link to the forum post where the mod can be discussed-->
 	<!--Version of the mod-->
-	<ModVersion Value="1.1.2" />
+	<ModVersion Value="1.1.3" />
 	<!--Recommended version of the base game to use the mod-->
 	<GameVersion Value="1.5.*" />
 	<!--Dependency for the mod, can be set multiple times-->
@@ -65,7 +62,7 @@
 	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
   <ForumLink Value="https://forum.paradoxplaza.com/forum/threads/building-height-and-footprint.1892804/"/>
   <ChangeLog>
-    - updated forum link
+    - fixed descripion formatting.
   </ChangeLog>
 	<!--<ChangeLog>
 	</ChangeLog>-->
